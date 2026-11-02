@@ -80,7 +80,7 @@ export default function Navbar() {
           {isPending ? (
             <span className="skeleton-tint h-10 w-24 rounded-full" aria-hidden="true" />
           ) : isAuthenticated ? (
-            <div className="dropdown dropdown-end" ref={profileRef}>
+            <div className="dropdown dropdown-end group" ref={profileRef}>
               <div
                 tabIndex={0}
                 role="button"

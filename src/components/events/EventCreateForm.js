@@ -13,7 +13,8 @@ export default function EventCreateForm() {
     try {
       const { data } = await api.post("/api/events", values);
       toast.success("Event published. Neighbours can find it now.");
-      router.replace(`/events/${data._id}`);
+      // The brief asks for a redirect to the Upcoming Events page after create.
+      router.replace("/events");
       router.refresh();
     } catch (error) {
       const { message } = toApiError(error);
