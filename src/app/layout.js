@@ -2,7 +2,7 @@ import { Fraunces, Manrope } from "next/font/google";
 import { ThemeProvider, themeInitScript } from "@/components/providers/ThemeProvider";
 import { ToastProvider } from "@/components/providers/ToastProvider";
 import { AuthProvider } from "@/components/providers/AuthProvider";
-import Navbar from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
