@@ -7,6 +7,7 @@ export const EVENT_TYPES = [
   "Blood Drive",
   "Education",
   "Health Camp",
+  "Mentorship",
   "Other",
 ];
 
@@ -19,6 +20,7 @@ export const EVENT_TYPE_STYLES = {
   "Blood Drive": "badge-error",
   "Education": "badge-info",
   "Health Camp": "badge-info",
+  "Mentorship": "badge-accent",
   Other: "badge-neutral",
 };
 
@@ -31,6 +33,7 @@ export const EVENT_TYPE_ICONS = {
   "Blood Drive": "M12 21s-7-5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 10-7 10Z",
   Education: "M4 9 12 5l8 4-8 4-8-4Zm3 3v5c0 1.5 2.5 2.5 5 2.5s5-1 5-2.5v-5",
   "Health Camp": "M12 6v12M6 12h12",
+  "Mentorship": "M12 2v20M5 9h14M5 15h14",
   Other: "M12 8h.01M12 12h.01M12 16h.01",
 };
 
@@ -64,9 +67,14 @@ export const formatDate = (value, { withTime = false } = {}) => {
  */
 const utcDay = (date) => Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 
+/**
+ * Parses a date value into a Date object or null.
+ * @param {string|Date} value
+ * @returns {Date|null}
+ */
 const parseDate = (value) => {
   if (!value) return null;
-  const date = new Date(value);
+  const date = value instanceof Date ? value : new Date(value);
   return Number.isNaN(date.getTime()) ? null : date;
 };
 
