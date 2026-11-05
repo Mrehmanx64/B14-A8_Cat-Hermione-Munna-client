@@ -79,6 +79,8 @@ api.interceptors.response.use(
       }
     }
 
+    // Log general errors for easier debugging
+    console.error("[api] Error:", error.message, error.response?.data);
     return Promise.reject(error);
   }
 );
