@@ -13,10 +13,11 @@ export default function EventCard({ event, footer, href }) {
   const [imageBroken, setImageBroken] = useState(false);
   const days = daysUntil(event.eventDate);
   const isPast = days !== null && days < 0;
+  const titleId = `title-${event._id}`;
   const to = href ?? `/events/${event._id}`;
 
   return (
-    <article className="event-card card overflow-hidden border border-base-300 bg-base-100 shadow-sm">
+    <article className="event-card card overflow-hidden border border-base-300 bg-base-100 shadow-sm" aria-labelledby={titleId}>
       <figure className="relative overflow-hidden bg-base-300">
         {imageBroken || !event.thumbnail ? (
           <div className="card-media flex items-center justify-center bg-base-200" aria-hidden="true">
@@ -30,7 +31,7 @@ export default function EventCard({ event, footer, href }) {
           // eslint-disable-next-line @next/next/no-img-element -- event thumbnails are arbitrary user URLs
           <img
             src={event.thumbnail}
-            alt={`Photo for ${event.title}`}
+            alt=""
             loading="lazy"
             className="card-media transition-transform duration-500 hover:scale-[1.04]"
             onError={() => setImageBroken(true)}
@@ -55,7 +56,7 @@ export default function EventCard({ event, footer, href }) {
       </figure>
 
       <div className="card-body gap-3 p-5">
-        <h3 className="font-display text-lg font-semibold leading-snug">
+        <h3 id={titleId} className="font-display text-lg font-semibold leading-snug">
           <Link href={to} className="transition-colors hover:text-primary">
             {event.title}
           </Link>
