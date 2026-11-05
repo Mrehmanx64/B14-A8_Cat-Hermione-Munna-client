@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import api, { toApiError } from "@/lib/api";
 import EventCard, { EventCardSkeleton } from "@/components/ui/EventCard";
 import EmptyState from "@/components/ui/EmptyState";
+import ErrorAlert from "@/components/ui/ErrorAlert";
 import { EVENT_TYPES, isUpcoming } from "@/lib/events";
 
 export default function EventsBrowser() {
@@ -33,6 +34,9 @@ export default function EventsBrowser() {
     };
   }, []);
 
+  /**
+   * Memoized event list based on search query, event type, and sorting preference.
+   */
   const visible = useMemo(() => {
     if (!events) return null;
 
@@ -117,11 +121,7 @@ export default function EventsBrowser() {
           </p>
         )}
 
-        {error && (
-          <div className="alert alert-error mt-6">
-            <span>{error}</span>
-          </div>
-        )}
+        {error && <ErrorAlert message={error} />}
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible === null &&
