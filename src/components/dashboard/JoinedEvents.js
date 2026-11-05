@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import api, { toApiError } from "@/lib/api";
-import EventCard, { EventCardSkeleton } from "@/components/ui/EventCard";
+import EventCard, { EventCardSkeleton } from "@/components/events/EventCard";
 import EmptyState from "@/components/ui/EmptyState";
 import { isUpcoming } from "@/lib/events";
 

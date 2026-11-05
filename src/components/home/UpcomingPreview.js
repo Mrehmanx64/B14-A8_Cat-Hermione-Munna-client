@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import api, { toApiError } from "@/lib/api";
-import EventCard, { EventCardSkeleton } from "@/components/ui/EventCard";
+import EventCard, { EventCardSkeleton } from "@/components/events/EventCard";
 
 /**
  * The six soonest upcoming events, fetched from the API. The server applies

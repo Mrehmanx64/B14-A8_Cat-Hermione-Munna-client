@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import api, { toApiError } from "@/lib/api";
 import { useToast } from "@/components/providers/ToastProvider";
-import EventCard, { EventCardSkeleton } from "@/components/ui/EventCard";
+import EventCard, { EventCardSkeleton } from "@/components/events/EventCard";
 import EmptyState from "@/components/ui/EmptyState";
 
 export default function ManageEvents() {
