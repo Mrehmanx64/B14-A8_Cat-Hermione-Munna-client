@@ -25,6 +25,12 @@ function jwtExpiry(token) {
   }
 }
 
+/**
+ * Fetches a valid BetterAuth JWT.
+ * @param {Object} options
+ * @param {boolean} [options.force=false] Force refresh the token.
+ * @returns {Promise<string|null>} The JWT or null if authentication fails.
+ */
 export async function getToken({ force = false } = {}) {
   if (!force && tokenCache.value && Date.now() < tokenCache.expiresAt - 30_000) {
     return tokenCache.value;
@@ -41,6 +47,9 @@ export async function getToken({ force = false } = {}) {
   }
 }
 
+/**
+ * Clears the cached JWT.
+ */
 export function clearTokenCache() {
   tokenCache = { value: null, expiresAt: 0 };
 }
