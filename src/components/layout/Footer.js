@@ -79,6 +79,8 @@ export default async function Footer() {
                 <a
                   key={label}
                   href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="btn btn-ghost btn-circle btn-sm border border-base-300 text-base-content/70 hover:border-primary hover:text-primary"
                 >
